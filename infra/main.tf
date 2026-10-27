@@ -185,12 +185,13 @@ resource "azurerm_linux_web_app" "app" {
   webdeploy_publish_basic_authentication_enabled = false
   identity { type = "SystemAssigned" }
   site_config {
-    always_on           = true
-    minimum_tls_version = "1.2"
-    ftps_state          = "Disabled"
-    http2_enabled       = true
-    health_check_path   = "/health/live"
-    app_command_line    = "gunicorn --bind 0.0.0.0:8000 --workers 2 --timeout 90 wsgi:application"
+    always_on                         = true
+    minimum_tls_version               = "1.2"
+    ftps_state                        = "Disabled"
+    http2_enabled                     = true
+    health_check_path                 = "/health/live"
+    health_check_eviction_time_in_min = 2
+    app_command_line                  = "gunicorn --bind 0.0.0.0:8000 --workers 2 --timeout 90 wsgi:application"
     application_stack { python_version = "3.12" }
   }
   app_settings = {
