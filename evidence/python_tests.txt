@@ -1,0 +1,13 @@
+.....................................................                    [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.14-final-0 _______________
+
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+app/__init__.py     173      8    95%   86-92, 191, 247
+app/store.py         88      2    98%   132-133
+-----------------------------------------------
+TOTAL               261     10    96%
+Coverage JSON written to file evidence/coverage.json
+Required test coverage of 80% reached. Total coverage: 96.17%
+53 passed in 7.53s

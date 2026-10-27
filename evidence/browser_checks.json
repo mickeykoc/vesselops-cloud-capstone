@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "environment": "local SQLite with synthetic records",
+  "checks": [
+    "operator connect",
+    "scenario evidence visible",
+    "create ticket through UI",
+    "review and update ticket",
+    "desktop screenshot",
+    "390px mobile no horizontal overflow",
+    "lock clears operational records",
+    "no JavaScript page errors"
+  ],
+  "cloud_deployment": false
+}

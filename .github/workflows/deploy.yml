@@ -1,0 +1,113 @@
+name: Deploy lab or destroy lab
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [deploy, destroy]
+        default: deploy
+        required: true
+      confirm:
+        description: 'Type DEPLOY-LAB or DESTROY-LAB to match the chosen operation'
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: vesselops-azure-lab
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch and explicit operation
+        env:
+          REF: ${{ github.ref }}
+          OP: ${{ inputs.operation }}
+          CONFIRM: ${{ inputs.confirm }}
+        run: |
+          test "$REF" = "refs/heads/main"
+          if [ "$OP" = "deploy" ]; then test "$CONFIRM" = "DEPLOY-LAB"; else test "$CONFIRM" = "DESTROY-LAB"; fi
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check app tools tests
+      - run: pytest --cov=app --cov-fail-under=80
+      - run: pip-audit -r requirements.txt --strict
+  azure:
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: vesselops-lab
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      ARM_USE_OIDC: 'true'
+      ARM_USE_AZUREAD: 'true'
+      ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
+      ARM_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      TF_VAR_subscription_id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      TF_VAR_budget_email: ${{ secrets.BUDGET_EMAIL }}
+      TF_VAR_location: ${{ vars.AZURE_LOCATION || 'eastus2' }}
+      TF_VAR_enable_sentinel: ${{ vars.ENABLE_SENTINEL || 'false' }}
+      STATE_RG: ${{ vars.TF_STATE_RG }}
+      STATE_ACCOUNT: ${{ vars.TF_STATE_ACCOUNT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.11.4'
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - run: pip install -r requirements.txt
+      - name: Initialize protected state
+        shell: bash
+        run: |
+          echo "TF_VAR_budget_start_date=$(date -u +%Y-%m-01T00:00:00Z)" >> "$GITHUB_ENV"
+          terraform -chdir=infra init -input=false \
+            -backend-config="resource_group_name=$STATE_RG" \
+            -backend-config="storage_account_name=$STATE_ACCOUNT" \
+            -backend-config="container_name=tfstate" \
+            -backend-config="key=vesselops.tfstate" \
+            -backend-config="use_azuread_auth=true" \
+            -backend-config="use_oidc=true"
+      - run: terraform -chdir=infra validate
+      - name: Plan and evaluate security policy
+        if: inputs.operation == 'deploy'
+        shell: bash
+        run: |
+          terraform -chdir=infra plan -input=false -out=lab.tfplan
+          terraform -chdir=infra show -json lab.tfplan > /tmp/vesselops-plan.json
+          python tools/azure_audit.py /tmp/vesselops-plan.json --terraform-plan --fail-on-high
+          rm /tmp/vesselops-plan.json
+      - name: Apply reviewed plan
+        if: inputs.operation == 'deploy'
+        run: terraform -chdir=infra apply -input=false lab.tfplan
+      - name: Package only application code and runtime dependencies
+        if: inputs.operation == 'deploy'
+        run: python tools/package_app.py --output /tmp/vesselops-app.zip
+      - name: Read nonsecret app name
+        if: inputs.operation == 'deploy'
+        run: echo "APP_NAME=$(terraform -chdir=infra output -raw app_name)" >> "$GITHUB_ENV"
+      - uses: azure/webapps-deploy@v3
+        if: inputs.operation == 'deploy'
+        with:
+          app-name: ${{ env.APP_NAME }}
+          package: /tmp/vesselops-app.zip
+      - name: Check public liveness only
+        if: inputs.operation == 'deploy'
+        run: curl --fail --retry 12 --retry-delay 10 --retry-all-errors "https://$APP_NAME.azurewebsites.net/health/live"
+      - name: Destroy tracked lab resources
+        if: inputs.operation == 'destroy'
+        run: terraform -chdir=infra destroy -input=false -auto-approve
+      - name: Remove local sensitive plan files
+        if: always()
+        run: rm -f /tmp/vesselops-plan.json infra/lab.tfplan

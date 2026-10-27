@@ -1,0 +1,27 @@
+[
+  {
+    "TimeGenerated": "2026-10-27T14:01:00Z",
+    "_ResourceId": "/subscriptions/SYNTHETIC/resourceGroups/lab/providers/Microsoft.Web/sites/vesselops",
+    "ResultDescription": "{\"schema_version\": 1, \"event\": \"auth.failed\", \"request_id\": \"synthetic-request-0\"}"
+  },
+  {
+    "TimeGenerated": "2026-10-27T14:01:01Z",
+    "_ResourceId": "/subscriptions/SYNTHETIC/resourceGroups/lab/providers/Microsoft.Web/sites/vesselops",
+    "ResultDescription": "{\"schema_version\": 1, \"event\": \"auth.failed\", \"request_id\": \"synthetic-request-1\"}"
+  },
+  {
+    "TimeGenerated": "2026-10-27T14:01:02Z",
+    "_ResourceId": "/subscriptions/SYNTHETIC/resourceGroups/lab/providers/Microsoft.Web/sites/vesselops",
+    "ResultDescription": "{\"schema_version\": 1, \"event\": \"auth.failed\", \"request_id\": \"synthetic-request-2\"}"
+  },
+  {
+    "TimeGenerated": "2026-10-27T14:01:03Z",
+    "_ResourceId": "/subscriptions/SYNTHETIC/resourceGroups/lab/providers/Microsoft.Web/sites/vesselops",
+    "ResultDescription": "{\"schema_version\": 1, \"event\": \"auth.failed\", \"request_id\": \"synthetic-request-3\"}"
+  },
+  {
+    "TimeGenerated": "2026-10-27T14:01:04Z",
+    "_ResourceId": "/subscriptions/SYNTHETIC/resourceGroups/lab/providers/Microsoft.Web/sites/vesselops",
+    "ResultDescription": "{\"schema_version\": 1, \"event\": \"auth.failed\", \"request_id\": \"synthetic-request-4\"}"
+  }
+]

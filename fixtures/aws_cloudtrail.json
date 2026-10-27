@@ -1,0 +1,100 @@
+{
+  "Records": [
+    {
+      "eventID": "login-0",
+      "eventTime": "2026-10-01T12:00:00Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::123456789012:user/lab-user"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "responseElements": {
+        "ConsoleLogin": "Failure"
+      }
+    },
+    {
+      "eventID": "login-1",
+      "eventTime": "2026-10-01T12:01:00Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::123456789012:user/lab-user"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "responseElements": {
+        "ConsoleLogin": "Failure"
+      }
+    },
+    {
+      "eventID": "login-2",
+      "eventTime": "2026-10-01T12:02:00Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::123456789012:user/lab-user"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "responseElements": {
+        "ConsoleLogin": "Failure"
+      }
+    },
+    {
+      "eventID": "login-3",
+      "eventTime": "2026-10-01T12:03:00Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::123456789012:user/lab-user"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "responseElements": {
+        "ConsoleLogin": "Failure"
+      }
+    },
+    {
+      "eventID": "login-4",
+      "eventTime": "2026-10-01T12:04:00Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::123456789012:user/lab-user"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "responseElements": {
+        "ConsoleLogin": "Failure"
+      }
+    },
+    {
+      "eventID": "login-5",
+      "eventTime": "2026-10-01T12:05:00Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::123456789012:user/lab-user"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "responseElements": {
+        "ConsoleLogin": "Success"
+      }
+    },
+    {
+      "eventID": "stop-1",
+      "eventTime": "2026-10-01T12:07:00Z",
+      "eventSource": "cloudtrail.amazonaws.com",
+      "eventName": "StopLogging",
+      "userIdentity": {
+        "type": "Root",
+        "arn": "arn:aws:iam::123456789012:root"
+      },
+      "sourceIPAddress": "192.0.2.10",
+      "responseElements": null
+    }
+  ]
+}

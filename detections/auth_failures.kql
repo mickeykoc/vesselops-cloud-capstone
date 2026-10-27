@@ -1,0 +1,10 @@
+// Dedicated App Service console table. App log JSON is in ResultDescription.
+// A ten-minute lookback allows ingestion latency; overlapping runs can repeat alerts.
+AppServiceConsoleLogs
+| where TimeGenerated > ago(10m)
+| extend entry = parse_json(ResultDescription)
+| where tostring(entry.event) == "auth.failed"
+| summarize Failures=count(), RequestIds=make_set(tostring(entry.request_id), 100)
+    by _ResourceId, bin(TimeGenerated, 5m)
+| where Failures >= 5
+| project TimeGenerated, _ResourceId, Failures, RequestIds

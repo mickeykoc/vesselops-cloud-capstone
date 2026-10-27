@@ -1,0 +1,52 @@
+{
+  "schema": "vesselops.azure-arm.v1",
+  "resources": [
+    {
+      "name": "vesselops-demo",
+      "type": "Microsoft.Web/sites",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "httpsOnly": false,
+        "siteConfig": {
+          "minTlsVersion": "1.2"
+        }
+      }
+    },
+    {
+      "name": "cosmos-demo",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "properties": {
+        "publicNetworkAccess": "Enabled",
+        "disableLocalAuth": true
+      }
+    },
+    {
+      "name": "kv-demo",
+      "type": "Microsoft.KeyVault/vaults",
+      "properties": {
+        "enableRbacAuthorization": true,
+        "enablePurgeProtection": true
+      }
+    },
+    {
+      "name": "nsg-demo",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "app-tls",
+            "properties": {
+              "access": "Allow",
+              "direction": "Inbound",
+              "protocol": "Tcp",
+              "sourceAddressPrefix": "::/0",
+              "destinationPortRange": "22-3389"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

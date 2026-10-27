@@ -1,0 +1,21 @@
+{
+  "scope": "exported console rows; fixed UTC five-minute buckets",
+  "alerts": [
+    {
+      "rule": "OPERATOR_AUTH_FAILURE_CLUSTER",
+      "severity": "medium",
+      "resource": "/subscriptions/synthetic/resourcegroups/lab/providers/microsoft.web/sites/vesselops",
+      "window_start": "2026-10-27T14:00:00+00:00",
+      "event_ids": [
+        "synthetic-request-0",
+        "synthetic-request-1",
+        "synthetic-request-2",
+        "synthetic-request-3",
+        "synthetic-request-4"
+      ],
+      "count": 5,
+      "reason": "Repeated rejected operator authentication; verify operator mistakes before escalating."
+    }
+  ],
+  "invalid_rows": []
+}

@@ -1,0 +1,64 @@
+{
+  "input_events": 7,
+  "unique_valid_events": 7,
+  "invalid_events": [],
+  "alerts": [
+    {
+      "event_id": "login-4",
+      "time": "2026-10-01T12:04:00Z",
+      "actor": "arn:aws:iam::123456789012:user/lab-user",
+      "source": "192.0.2.10",
+      "rule": "LOGIN_FAILURE_CLUSTER",
+      "severity": "medium",
+      "reason": "5 failures within 10 minutes.",
+      "related_event_ids": [
+        "login-0",
+        "login-1",
+        "login-2",
+        "login-3",
+        "login-4"
+      ]
+    },
+    {
+      "event_id": "login-5",
+      "time": "2026-10-01T12:05:00Z",
+      "actor": "arn:aws:iam::123456789012:user/lab-user",
+      "source": "192.0.2.10",
+      "rule": "SUCCESS_AFTER_FAILURES",
+      "severity": "high",
+      "reason": "Successful login after repeated failures; verify with account owner.",
+      "related_event_ids": [
+        "login-0",
+        "login-1",
+        "login-2",
+        "login-3",
+        "login-4",
+        "login-5"
+      ]
+    },
+    {
+      "event_id": "stop-1",
+      "time": "2026-10-01T12:07:00Z",
+      "actor": "arn:aws:iam::123456789012:root",
+      "source": "192.0.2.10",
+      "rule": "ROOT_ACTIVITY",
+      "severity": "high",
+      "reason": "Review root principal activity and approved change history.",
+      "related_event_ids": [
+        "stop-1"
+      ]
+    },
+    {
+      "event_id": "stop-1",
+      "time": "2026-10-01T12:07:00Z",
+      "actor": "arn:aws:iam::123456789012:root",
+      "source": "192.0.2.10",
+      "rule": "LOGGING_CHANGE",
+      "severity": "high",
+      "reason": "Successful logging change; validate approval and trail coverage.",
+      "related_event_ids": [
+        "stop-1"
+      ]
+    }
+  ]
+}

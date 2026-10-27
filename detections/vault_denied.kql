@@ -1,0 +1,7 @@
+// Key Vault diagnostics use the legacy AzureDiagnostics table in this deployment.
+AzureDiagnostics
+| where TimeGenerated > ago(10m)
+| where ResourceProvider == "MICROSOFT.KEYVAULT" and Category == "AuditEvent"
+| where OperationName == "SecretGet"
+| where tostring(ResultType) !in ("Success", "200")
+| project TimeGenerated, _ResourceId, OperationName, ResultType, ResultSignature, CorrelationId

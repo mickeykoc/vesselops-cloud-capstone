@@ -1,0 +1,24 @@
+{
+  "scope": "selected explicit configuration guardrails; not complete security or reachability assessment",
+  "resources_checked": 4,
+  "findings": [
+    {
+      "rule": "APP_HTTPS_REQUIRED",
+      "resource": "vesselops-demo",
+      "severity": "high",
+      "description": "Require HTTPS; missing configuration does not pass."
+    },
+    {
+      "rule": "DATABASE_PRIVATE",
+      "resource": "cosmos-demo",
+      "severity": "high",
+      "description": "Disable public database network access."
+    },
+    {
+      "rule": "NSG_ADMIN_WORLD",
+      "resource": "nsg-demo",
+      "severity": "high",
+      "description": "Internet-wide SSH/RDP ingress requires restriction. Rule alone does not prove reachability."
+    }
+  ]
+}

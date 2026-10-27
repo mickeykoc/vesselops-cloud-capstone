@@ -1,0 +1,6 @@
+subscription_id   = "00000000-0000-0000-0000-000000000000"
+location          = "eastus2"
+budget_email      = "replace-me@example.com"
+budget_start_date = "2026-10-01T00:00:00Z"
+monthly_budget    = 25
+enable_sentinel   = false

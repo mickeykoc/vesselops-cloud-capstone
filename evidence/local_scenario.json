@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-10-27T17:02:25.460840+00:00",
+  "provenance": "controlled synthetic scenario against caller-selected own instance",
+  "storage": "sqlite",
+  "expected_rejections": 5,
+  "request_ids": [
+    "388bd121-4c3c-449d-a7ad-c4eb99c67189",
+    "daacc814-1406-46f7-97a4-72620c4f1114",
+    "c16c117f-983c-41f4-96b4-ef20e548a57a",
+    "b0ef06a9-61f1-4dcb-b7bb-5359534ab092",
+    "3e8faaea-bcd9-4a74-a13d-fdd4e55e30c8"
+  ],
+  "ticket_id": "dbd1528f-9912-41e7-877d-690152fe86a8",
+  "ticket_status": "resolved",
+  "incident_id": "2f791283-6e48-472a-825b-d0aa34006f76"
+}
