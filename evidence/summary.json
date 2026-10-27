@@ -5,8 +5,11 @@
   "browser_checks": "passed locally with synthetic data",
   "terraform_fmt": "passed",
   "hcl_security_invariants": "passed",
-  "provider_validate": "blocked by local socket restrictions",
+  "provider_validate": "passed on GitHub Actions",
   "live_azure": "not deployed",
-  "github": "not published",
-  "scope": "AI-assisted starting implementation; personal completion evidence pending"
+  "github": "published privately; validation passed",
+  "scope": "AI-assisted starting implementation; personal completion evidence pending",
+  "terraform_mock_tests": "2 passed, 0 failed on GitHub Actions",
+  "github_validated_commit": "cd4e93ae82097b78947b34cea2095aa5c0cc0ed4",
+  "github_validation_run": "https://github.com/mickeykoc/vesselops-cloud-capstone/actions/runs/40551966025"
 }

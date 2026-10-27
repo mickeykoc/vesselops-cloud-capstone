@@ -88,7 +88,7 @@ python tools/azure_audit.py evidence/my_azure_inventory.json --fail-on-high --ou
 
 ## 6. Configure GitHub OIDC deployment
 
-Publish this source to your own GitHub repository first. No repository was created by this delivery. Ensure `main` is protected and PR tests must pass. Run the OIDC helper after the first apply, passing the state identifiers printed by bootstrap:
+Publish this source to your own GitHub repository first. The private repository is mickeykoc/vesselops-cloud-capstone; the source and validation workflow are published there. Ensure `main` is protected and PR tests must pass. Run the OIDC helper after the first apply, passing the state identifiers printed by bootstrap:
 
 ```sh
 bash tools/bootstrap_oidc.sh OWNER/REPO STATE_RESOURCE_GROUP STATE_ACCOUNT YOUR_SUBSCRIPTION_UUID

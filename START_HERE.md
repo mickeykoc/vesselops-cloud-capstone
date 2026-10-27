@@ -12,6 +12,6 @@ Your GitHub Student Developer Pack may help with Azure credit. Read `docs/STUDEN
 
 **Built and tested locally:** 53 passing tests, 96.17% application coverage, browser-tested desktop/mobile UI and a completed synthetic incident workflow.
 
-**Still requires your accounts:** GitHub publication, Azure deployment, private connectivity verification, live logs/Sentinel, and actual cloud cost/teardown evidence. Terraform provider runtime checks are included but could not run in this workspace's local-socket restrictions. See `evidence/VALIDATION.md`.
+**Still requires your accounts:** Azure deployment, private connectivity verification, live logs/Sentinel, and actual cloud cost/teardown evidence. Terraform provider validation and both mocked infrastructure tests subsequently passed on GitHub Actions. See `evidence/VALIDATION.md`.
 
 Do not treat a rating as a credential. The strongest hiring evidence will be your own successful deployment, a change you made, and a clear explanation of a failure you diagnosed.

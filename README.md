@@ -8,11 +8,13 @@ A working operations console that connects an IT issue to an asset, preserves in
 
 ## Start here
 
+**GitHub validation passed:** 53 Python tests, 96.17% application coverage, dependency audit, Terraform schema validation, both provider-mocked infrastructure tests and policy checks. See [validation evidence](evidence/GITHUB_VALIDATION.md).
+
 Read `START_HERE.md` for the shortest path through the project.
 
 **What is built:** Flask application and browser console; SQLite local persistence; Cosmos DB adapter; Azure Terraform configuration; managed identity and secret access; logging and optional Sentinel rules; GitHub Actions validation and OIDC deployment workflows; Azure ARM export/audit tools; Azure/AWS log triage; a controlled incident scenario; runbooks and tests.
 
-**What is not yet demonstrated:** an actual deployment in Michael's Azure subscription, a GitHub Actions run, real cloud telemetry ingestion, cloud cost measurements, or Michael personally completing the exercises. Local test results and screenshots are included with explicit provenance. Read `evidence/VALIDATION.md` for exact verification status.
+**What is not yet demonstrated:** an actual deployment in Michael's Azure subscription, real cloud telemetry ingestion, cloud cost measurements, or Michael personally completing the exercises. Local test results and screenshots are included with explicit provenance. Read `evidence/VALIDATION.md` for exact verification status.
 
 ## Run it on your computer
 

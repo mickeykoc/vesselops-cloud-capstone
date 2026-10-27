@@ -1,4 +1,6 @@
-# Validation record
+# Initial local validation record
+
+**Update:** GitHub validation subsequently passed, including provider-backed Terraform validation and two mocked infrastructure tests. See [GITHUB_VALIDATION.md](GITHUB_VALIDATION.md). The table below preserves the original local-only result; Azure deployment remains pending.
 
 Prepared October 27, 2026. Results below are assistant-executed checks of the delivered source, not Michael's personal completion record.
 

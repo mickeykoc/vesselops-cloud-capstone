@@ -12,7 +12,7 @@ As checked October 27, 2026, the GitHub pack lists an Azure student offer with $
 
 The App Service **B1** plan used for VNet integration is not the free shared App Service tier. Cosmos DB **serverless** here is not the provisioned-throughput Cosmos free-tier allocation. Private endpoints and log ingestion can also consume credit. Do not assume a free-service listing covers this exact architecture. The $25 lab budget sends alerts, not a hard spending stop. The separately bootstrapped state storage account also has costs outside that resource-group budget.
 
-GitHub account access is useful to publish the repository, run CI and configure the OIDC environment. The source package is ready for a repository, but no repository, credit redemption or cloud deployment has been performed in this delivery.
+GitHub account access is useful to publish the repository, run CI and configure the OIDC environment. The source is published to the private mickeykoc/vesselops-cloud-capstone repository and GitHub validation has passed. Credit redemption and cloud deployment have not been performed.
 
 Sources:
 - GitHub: https://education.github.com/pack?sort=popularity&tag=Cloud
