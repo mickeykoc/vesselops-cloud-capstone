@@ -25,7 +25,7 @@ Validated October 27, 2026 by the repository's GitHub-hosted Ubuntu runner.
 
 ## Actual issue found and fixed
 
-The first GitHub run reached Terraform provider validation and failed because `health_check_path` requires a paired `health_check_eviction_time_in_min` setting in the pinned AzureRM provider. The source was corrected to set the interval to 2 minutes; the rerun passed validation and both infrastructure tests. This is a real CI configuration issue diagnosed during preparation, not a claim that Michael personally diagnosed it.
+The first GitHub run reached Terraform provider validation and failed because `health_check_path` requires a paired `health_check_eviction_time_in_min` setting in the pinned AzureRM provider. The source was corrected to set the interval to 2 minutes; the rerun passed validation and both infrastructure tests. This was a real CI configuration issue: the first run failed on the missing paired setting, the source was corrected, and the rerun passed.
 
 ## What this proves and what it does not
 
