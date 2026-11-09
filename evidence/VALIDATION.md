@@ -2,7 +2,7 @@
 
 **Update:** GitHub validation subsequently passed, including provider-backed Terraform validation and two mocked infrastructure tests. See [GITHUB_VALIDATION.md](GITHUB_VALIDATION.md). The table below preserves the original local-only result; Azure deployment remains pending.
 
-Prepared October 27, 2026. Results below are assistant-executed checks of the delivered source, not Michael's personal completion record.
+Prepared October 27, 2026. Results below are the checks run against the source before publication. GitHub Actions re-runs the suite on every push; see GITHUB_VALIDATION.md and the workflow history for current status.
 
 | Check | Result | Scope |
 | --- | --- | --- |
