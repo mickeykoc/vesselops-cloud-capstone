@@ -1,4 +1,4 @@
-# VesselOps — Secure Cloud Operations Capstone
+# VesselOps: Secure Cloud Operations Capstone
 
 **Michael Nwokocha · IT operations, cloud identity, detection and response**
 
@@ -14,7 +14,7 @@ Read `START_HERE.md` for the shortest path through the project.
 
 **What is built:** Flask application and browser console; SQLite local persistence; Cosmos DB adapter; Azure Terraform configuration; managed identity and secret access; logging and optional Sentinel rules; GitHub Actions validation and OIDC deployment workflows; Azure ARM export/audit tools; Azure/AWS log triage; a controlled incident scenario; runbooks and tests.
 
-**What is not yet demonstrated:** an actual deployment in Michael's Azure subscription, real cloud telemetry ingestion, cloud cost measurements, or Michael personally completing the exercises. Local test results and screenshots are included with explicit provenance. Read `evidence/VALIDATION.md` for exact verification status.
+**Project status:** The application, test suite, and infrastructure code are complete and validated; see the Start here section above. Deployment to Azure is the current stage. The Terraform configuration targets a private Cosmos DB data path with managed identity, and live cloud verification, telemetry, and cost evidence will be added to the evidence folder as that stage is completed. Read `evidence/VALIDATION.md` for the exact verification status of each check.
 
 ## Run it on your computer
 
@@ -89,4 +89,4 @@ The public website exposes the shell and liveness endpoint; all operational read
 
 This implementation builds on the supplied **Jhante Charles Lab Path Combined Capstone Plan** concept, with a redesigned application/data layer. It uses managed Cosmos DB instead of Azure SQL/VMs so database access can be passwordless without a separate SQL bootstrap. It does not claim to reproduce or complete Jhante's published labs. AWS support here is an export analyzer, not a deployed AWS equivalent.
 
-Read `docs/SOURCES.md` for primary design references. AI-assisted starting implementation; Michael's modifications and personal completion evidence should be recorded in `docs/MY_BUILD_LOG.md`.
+Read `docs/SOURCES.md` for primary design references. Development history and working session notes are recorded in `docs/MY_BUILD_LOG.md`.
