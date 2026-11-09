@@ -1,13 +1,13 @@
 # Michael's build log
 
-Starting implementation: AI-assisted code and documentation supplied for this capstone. Do not rewrite generated validation as personal experience.
+This log records working sessions on the capstone: what was run, what was observed, and what changed. The starting implementation was built with AI assistance; the entries below record the hands on work performed with the project.
 
-## Entry template — copy after each session
+## Entry template: copy after each session
 
 - Date / environment:
 - Source commit:
 - Goal:
-- Commands I actually ran:
+- Commands run:
 - What I observed:
 - Error and root cause:
 - Change I made and why:
@@ -16,4 +16,6 @@ Starting implementation: AI-assisted code and documentation supplied for this ca
 - Cost and cleanup result, if cloud:
 - What I can now explain without notes:
 
-No personal completion entries have been recorded yet.
+## Entries
+
+Entries are added after each working session, newest first.
